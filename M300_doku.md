@@ -71,3 +71,14 @@ sudo ufw allow ssh
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 sudo service apache2 restart
+
+# Benutzer und Rechtevergabe
+vagrant@web:~$ sudo groupadd admin
+groupadd: group 'admin' already exists
+vagrant@web:~$ sudo useradd user01 -g admin -m -s /bin/bash
+vagrant@web:~$ sudo useradd user02 -g admin -m -s /bin/bash
+vagrant@web:~$ sudo chpasswd <<<user01:0007
+vagrant@web:~$ sudo chpasswd <<<user02:0008
+vagrant@web:~$ exit
+
+
